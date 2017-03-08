@@ -1,50 +1,9 @@
-# arduinoUno-wisol
-How to send a Sigfox "Hello World" with Arduino Uno and Sigfox Wisol module
-
-## Hardware Requirements
-* Arduino Uno
-* [SNOC Breakout Board - Sigfox BRKWS01](https://yadom.fr/carte-breakout-sfm10r1.html)
-
-## Module Schematics
-
-* SNOC Breakout Board:
-![SNOC](doc/SNOC-wisol-schematics.png)
-
-* Arduino Uno:
-![Arduino Uno](doc/arduino-uno.jpg)
-
-## Wiring
-
-![Wiring](doc/connexion_gpio.png)
-Thank you [framboise314](http://www.framboise314.fr/carte-de-prototypage-sigfox-par-snoc/) for this connection picture!
-
-![](doc/wiring3.jpg)
-
-![](doc/wiring1.jpg)
-
-![](doc/wiring2.jpg)
-
-
-## Install Arduino IDE
-
-* Get the lastest arduino IDE [here](https://www.arduino.cc/en/main/software).
-* Go to Tools > Boards
-* Select the Arduino/Guenuino Uno
-
-
-## Send your first message - Hello World
-
-With Sigfox, "Hello World" is to send a "CAFE" or "C0FFEE" message in hexadecimal.
-
-Copy past this code in a new project (or open sigfox-hello-world.ino in the repository you've just cloned):
-
-```
 /*
  * Author: Louis Moreau: https://github.com/luisomoreau
  * Date: 2017/03/03
  * Description:
  * This arduino example will show you how to send a Sigfox message
- * using the wisol module and the arduino UNO (https://yadom.fr/carte-breakout-sfm10r1.html)
+ * using the wisol module and Arduino UNO (https://yadom.fr/carte-breakout-sfm10r1.html)
 */
 
 // include the SoftwareSerial library so you can use its functions:
@@ -103,7 +62,7 @@ void blink(){
   digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
   delay(1000);                       // wait for a second
   digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
-  delay(1000);    
+  delay(1000);
 }
 
 //Get Sigfox ID
@@ -187,24 +146,3 @@ void sendMessage(uint8_t msg[], int size){
     Serial.println(status);
   }
 }
-
-```
-
-You should get this result:
-![](doc/SerialConsole.png)
-
-## See your messages in Sigfox Backend
-
-![Sigfox Backend](doc/SigfoxBackend.png)
-
-
-
-## Additional content
-
-* [Framboise314](http://www.framboise314.fr/carte-de-prototypage-sigfox-par-snoc/)
-
-
-* [Tutos Instructables](www.instructables.com/member/luisomoreau/)
-
-
-* [Tutos Hackster](https://www.hackster.io/luisomoreau)
