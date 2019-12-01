@@ -38,7 +38,7 @@ With Sigfox, "Hello World" is to send a "CAFE" or "C0FFEE" message in hexadecima
 
 Copy past this code in a new project (or open sigfox-hello-world.ino in the repository you've just cloned):
 
-```
+```cpp
 /*
  * Author: Louis Moreau: https://github.com/luisomoreau
  * Date: 2017/03/03
