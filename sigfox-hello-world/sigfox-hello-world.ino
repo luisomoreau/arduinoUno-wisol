@@ -116,33 +116,60 @@ String getPAC(){
 
 
 //Send Sigfox Message
-void sendMessage(uint8_t msg[], int size){
+void sendMessage(uint8_t msg[], int size)
+{
+  if(DEBUG){
+    Serial.println("Inside sendMessage");
+  }
+  
 
   String status = "";
+  String hexChar = "";
+  String sigfoxCommand = "";
   char output;
 
-  Sigfox.print("AT$SF=");
-  for(int i= 0;i<size;i++){
-    Sigfox.print(String(msg[i], HEX));
-    if(DEBUG){
-      Serial.print("Byte:");
-      Serial.println(msg[i], HEX);
+  sigfoxCommand += "AT$SF=";
+
+  for (int i = 0; i < size; i++)
+  {
+    hexChar = String(msg[i], HEX);
+
+    //padding
+    if (hexChar.length() == 1)
+    {
+      hexChar = "0" + hexChar;
     }
+
+    sigfoxCommand += hexChar;
   }
 
-  Sigfox.print("\r");
+  if(DEBUG){
+    Serial.println("Sending...");
+    Serial.println(sigfoxCommand);
 
-  while (!Sigfox.available()){
-     blink();
   }
-  while(Sigfox.available()){
+
+
+  while (!Sigfox.available())
+  {
+    if(DEBUG){
+      Serial.println("Waiting for response");
+    }
+    
+    delay(1000);
+  }
+
+  while (Sigfox.available())
+  {
     output = (char)Sigfox.read();
     status += output;
     delay(10);
   }
+
   if(DEBUG){
     Serial.println();
     Serial.print("Status \t");
     Serial.println(status);
   }
+  
 }
