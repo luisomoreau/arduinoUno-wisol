@@ -28,8 +28,8 @@ Thank you [framboise314](http://www.framboise314.fr/carte-de-prototypage-sigfox-
 ## Install Arduino IDE
 
 * Get the lastest arduino IDE [here](https://www.arduino.cc/en/main/software).
-* Go to Tools > Boards
-* Select the Arduino/Guenuino Uno
+* Go to `Tools > Boards`
+* Select the `Arduino/Guenuino Uno`
 
 
 ## Send your first message - Hello World
